@@ -3,7 +3,7 @@ import logging
 from colorama import Fore, Back, Style, init as colorama_init
 
 class MyLogger:
-    __SPLIT_LINE = "#" * 100
+    __SPLIT_LINE: str = "#" * 100
     
     def __init__(self) -> None:
         pass
