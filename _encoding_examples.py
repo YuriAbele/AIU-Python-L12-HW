@@ -6,26 +6,6 @@ from _init_logging import MyLogger
 
 class EncodingExamples:
    
-    @staticmethod
-    def clean_target_files() -> None:
-        """
-        Clean up previously generated encoding example files.
-        """
-        
-        MyLogger.info("\nCleaning encoding example files:START")
-        
-        for file_name in os.listdir(CONSTANTS.BASE_PATH_DATA_RAW):
-            full_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
-            if os.path.isfile(full_path):
-                MyLogger.debug(f"--> Remove the \"{full_path}\" file.")
-                os.remove(full_path)
-        for file_name in os.listdir(CONSTANTS.BASE_PATH_DATA_PROCESSED):
-            full_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_PROCESSED, file_name)
-            if os.path.isfile(full_path):
-                MyLogger.debug(f"--> Remove the \"{full_path}\" file.")
-                os.remove(full_path)
-                
-        MyLogger.info("Cleaning encoding example files:END")
         
     @staticmethod
     def encoding_examples_generate() -> None:

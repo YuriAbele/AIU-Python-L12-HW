@@ -70,7 +70,7 @@ class SerializeProcessor:
         return file_data
         
     @staticmethod
-    def serialize_to_json(source_list: list[FilesPairData]) -> str:
+    def serialize_files_pair_data_to_json(source_list: list[FilesPairData]) -> str:
         """
         Convert a list of FilesPairData to a JSON string.
         """

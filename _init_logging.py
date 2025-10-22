@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 import logging
 from colorama import Fore, Back, Style, init as colorama_init
+from pathlib import Path
 
 import _CONSTANTS as CONSTANTS
 
@@ -26,6 +27,36 @@ class MyLogger:
 
         logging.info(f"STARTED {MyLogger.__SPLIT_LINE}")
         print(Fore.LIGHTYELLOW_EX + f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{MyLogger.__SPLIT_LINE}")
+
+
+    @staticmethod
+    def display_tree(directory: Path, prefix: str = "", is_root: bool = True) -> None:
+        """
+        Recursively displays the directory and file tree.
+        """
+
+        if is_root:
+            MyLogger.debug(f"{directory}/".replace("\\", "/"))
+
+        # Get the list of contents, ignoring "hidden" files/folders
+        # (optionally, you can remove startswith('.'))
+        items = [p for p in directory.iterdir() if not p.name.startswith('.')]
+        
+        # Sort for order
+        items.sort()
+
+        # Prepare "pointers"
+        pointers = ["├── "] * (len(items) - 1) + ["└── "]
+
+        for pointer, path in zip(pointers, items):
+            # Print the current item
+            MyLogger.debug(f"{prefix}{pointer}{path.name}")
+            
+            # If it is a directory, recursively call it for it.
+            if path.is_dir():
+                # Determine what prefix to pass "deeper"
+                extension = "│   " if pointer == "├── " else "    "
+                MyLogger.display_tree(path, prefix=prefix + extension, is_root=False)
     
     @staticmethod
     def log_end():

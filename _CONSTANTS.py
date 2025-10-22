@@ -8,8 +8,10 @@ BASE_PATH_DATA_PROCESSED: str = f"{BASE_PATH_DATA}/processed"
 BASE_PATH_OUTPUT: str = f"{BASE_PATH_ROOT}/output"
 BASE_PATH_BACKUPS: str = f"{BASE_PATH_ROOT}/backups"
 
+BASE_FILE_NAME_BACKUP: str = "backup"
+
 FILE_NAME_LOG: str = "app.log"
-FILE_NAME_JSON_OUTPUT: str = "encoded_examples.json"
+FILE_NAME_JSON_OUTPUT: str = "processed_data.json"
 
 FS_STRUCTURE = [
     BASE_PATH_ROOT, # root directory
