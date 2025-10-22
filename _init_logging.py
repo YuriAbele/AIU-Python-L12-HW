@@ -35,18 +35,18 @@ class MyLogger:
         
     @staticmethod
     def debug(message: str):
-        print(Fore.GREEN + message)
+        print(Fore.GREEN + message.strip())
         logging.debug(message)
         
     @staticmethod
     def info(message: str):
-        print(message)
-        logging.info(message)
+        print(Fore.LIGHTWHITE_EX + message)
+        logging.info(message.strip())
         
     @staticmethod
     def error(message: str):
         print(Fore.RED + message)
-        logging.error(message)
+        logging.error(message.strip())
 
     @staticmethod
     def tests():

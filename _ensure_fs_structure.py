@@ -18,8 +18,8 @@ def ensure_fs_structure():
     """
     Ensure the filesystem structure defined in FS_TEMPLATE exists.
     """
-    MyLogger.info(f"Ensuring filesystem structure...\n{FS_TEMPLATE}")
+    MyLogger.info(f"\nEnsuring filesystem structure:START\n{FS_TEMPLATE}")
     for path in FS_TEMPLATE:
         MyLogger.debug(f"--> Ensuring directory exists: {path}")
         os.makedirs(path, exist_ok=True)
-    MyLogger.info("Filesystem structure ensured.")
+    MyLogger.info("Ensuring filesystem structure:END")
