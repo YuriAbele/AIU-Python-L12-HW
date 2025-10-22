@@ -1,6 +1,6 @@
 from _init_logging import MyLogger
 from _ensure_fs_structure import ensure_fs_structure
-from _generate_encoding_examples import generate_encoding_examples
+from _encoding_examples import generate_encoding_examples
 
 ################################################################################
 
