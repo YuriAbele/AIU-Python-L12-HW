@@ -47,8 +47,8 @@ class SerializeProcessor:
         MyLogger.info(f"\tProcess file_name \"{file_name}\":START")
 
         # Construct full file paths
-        full_path_raw = FileSystemHelper.calc_file_full_path(CONSTANTS.PATH_DATA_RAW, file_name)
-        full_path_processed = FileSystemHelper.calc_file_full_path(CONSTANTS.PATH_DATA_PROCESSED, file_name, suffix="_processed")
+        full_path_raw = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
+        full_path_processed = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_PROCESSED, file_name, suffix="_processed")
 
         file_data: FilesPairData = FilesPairData(file_name = file_name, encoding_name = encoding_name)
         
@@ -92,7 +92,7 @@ class SerializeProcessor:
 
         MyLogger.info("\nSaving JSON to file:START")
 
-        output_path = os.path.join(CONSTANTS.PATH_OUTPUT, "encoded_examples.json")
+        output_path = os.path.join(CONSTANTS.BASE_PATH_OUTPUT, "encoded_examples.json")
         with open(output_path, 'w', encoding='utf-8') as output_file:
             output_size = output_file.write(json_string)
             MyLogger.debug(f"\t--> Saved {output_size} bytes to \"{output_path}\" file.")

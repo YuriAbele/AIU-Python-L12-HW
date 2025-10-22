@@ -31,7 +31,7 @@ class MyLogger:
         
     @staticmethod
     def print_split_line():
-        print(Style.DIM + MyLogger.__SPLIT_LINE)
+        print(Fore.LIGHTYELLOW_EX + "\n" + MyLogger.__SPLIT_LINE)
         
     @staticmethod
     def debug(message: str):

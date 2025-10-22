@@ -1,8 +1,9 @@
 class CONSTANTS:
     
-    PATH_DATA_RAW: str = "project_root/data/raw/"
-    PATH_DATA_PROCESSED: str = "project_root/data/processed/"
-    PATH_OUTPUT: str = "project_root/output/"
+    BASE_PATH_DATA_RAW: str = "project_root/data/raw/"
+    BASE_PATH_DATA_PROCESSED: str = "project_root/data/processed/"
+    BASE_PATH_OUTPUT: str = "project_root/output/"
+    BASE_PATH_BACKUP: str = "project_root/backups/"
 
     FILE_NAMES: list[str] = [
         "example_UTF8.txt",
