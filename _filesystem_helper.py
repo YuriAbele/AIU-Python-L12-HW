@@ -1,7 +1,7 @@
 from datetime import datetime
 import os
 
-from _init_logging import MyLogger
+from _logging_helper import MyLogger
 import _CONSTANTS as CONSTANTS
 
 class FileInfo:

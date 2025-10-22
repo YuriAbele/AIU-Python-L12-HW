@@ -2,7 +2,7 @@ import os
 import chardet
 import _CONSTANTS as CONSTANTS
 from _filesystem_helper import FileSystemHelper
-from _init_logging import MyLogger
+from _logging_helper import MyLogger
 
 class EncodingExamples:
    
