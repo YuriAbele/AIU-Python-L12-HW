@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from helpers import *
-import _CONSTANTS as CONSTANTS
 
 LoggingHelper.log_start()
 ################################################################################

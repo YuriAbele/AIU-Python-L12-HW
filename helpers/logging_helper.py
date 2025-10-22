@@ -4,7 +4,7 @@ import logging
 from colorama import Fore, Back, Style, init as colorama_init
 from pathlib import Path
 
-import _CONSTANTS as CONSTANTS
+from . import CONSTANTS as CONSTANTS
 
 class LoggingHelper:
     __SPLIT_LINE: str = "#" * 100

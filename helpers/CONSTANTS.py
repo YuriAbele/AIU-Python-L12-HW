@@ -1,5 +1,5 @@
 #class CONSTANTS:
-    
+
 BASE_PATH_ROOT: str = "project_root"
 BASE_PATH_LOGS: str = f"{BASE_PATH_ROOT}/logs"
 BASE_PATH_DATA: str = f"{BASE_PATH_ROOT}/data"

@@ -1,19 +1,9 @@
 from datetime import datetime
 import os
 
-from helpers.logging_helper import LoggingHelper
-import _CONSTANTS as CONSTANTS
-
-class FileInfo:
-    def __init__(self,
-                 file_name: str,
-                 full_path: str,
-                 size: int,
-                 last_modified_at: str) -> None:
-        self.file_name = file_name
-        self.full_path = full_path
-        self.size = size
-        self.last_modified_at = last_modified_at
+from . import CONSTANTS as CONSTANTS
+from .logging_helper import LoggingHelper
+from .file_info import FileInfo
 
 class FileSystemHelper:
     

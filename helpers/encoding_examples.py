@@ -1,8 +1,8 @@
 import chardet
-import _CONSTANTS as CONSTANTS
-from helpers.filesystem_helper import FileSystemHelper
-from helpers.logging_helper import LoggingHelper
 
+from . import CONSTANTS as CONSTANTS
+from .logging_helper import LoggingHelper
+from .filesystem_helper import FileSystemHelper
 class EncodingExamples:
    
         
