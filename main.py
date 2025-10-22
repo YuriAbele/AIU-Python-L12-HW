@@ -4,7 +4,7 @@ from _backup_helper import BackupHelper
 from _init_logging import MyLogger
 from _fs_helper import FileSystemHelper
 from _encoding_examples import EncodingExamples
-from _serialize_processor import SerializeProcessor
+from _serialization_helper import SerializationHelper
 import _CONSTANTS as CONSTANTS
 
 MyLogger.log_start()
@@ -30,9 +30,9 @@ EncodingExamples.encoding_examples_read_and_process()
 MyLogger.print_split_line()
 
 # Task 2.2. Read multiple processed files and serialize to JSON
-many_files_list = SerializeProcessor.read_many_files()
-json_string = SerializeProcessor.serialize_files_pair_data_to_json(many_files_list)
-SerializeProcessor.save_json_to_file(json_string)
+many_files_list = SerializationHelper.read_many_files()
+json_string = SerializationHelper.serialize_files_pair_data_to_json(many_files_list)
+SerializationHelper.save_json_to_file(json_string)
 
 ################################################################################
 MyLogger.print_split_line()

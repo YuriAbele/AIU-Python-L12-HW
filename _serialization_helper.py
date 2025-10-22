@@ -20,7 +20,7 @@ class FilesPairData:
         self.size = size
         self.last_modified_at = last_modified_at
 
-class SerializeProcessor:
+class SerializationHelper:
 
     @staticmethod
     def read_many_files() -> list[FilesPairData]:
@@ -32,7 +32,7 @@ class SerializeProcessor:
         
         output_list: list[FilesPairData] = []
         for (file_name, encoding_name) in zip(CONSTANTS.FILE_NAMES, CONSTANTS.ENCODING_NAMES):
-            file_pair_data = SerializeProcessor.read_filepair_data(file_name, encoding_name=encoding_name)
+            file_pair_data = SerializationHelper.read_filepair_data(file_name, encoding_name=encoding_name)
             # file_data_dict = file_data.to_dict()
             output_list.append(file_pair_data)
 
