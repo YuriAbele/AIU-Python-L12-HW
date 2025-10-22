@@ -15,12 +15,12 @@ class EncodingExamples:
         MyLogger.info("\nCleaning encoding example files:START")
         
         for file_name in os.listdir(CONSTANTS.BASE_PATH_DATA_RAW):
-            full_path = os.path.join(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
+            full_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
             if os.path.isfile(full_path):
                 MyLogger.debug(f"--> Remove the \"{full_path}\" file.")
                 os.remove(full_path)
         for file_name in os.listdir(CONSTANTS.BASE_PATH_DATA_PROCESSED):
-            full_path = os.path.join(CONSTANTS.BASE_PATH_DATA_PROCESSED, file_name)
+            full_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_PROCESSED, file_name)
             if os.path.isfile(full_path):
                 MyLogger.debug(f"--> Remove the \"{full_path}\" file.")
                 os.remove(full_path)
@@ -36,7 +36,7 @@ class EncodingExamples:
         MyLogger.info("\nGenerating encoding example files:START")
         
         for file_name, encoding in zip(CONSTANTS.FILE_NAMES, CONSTANTS.ENCODING_NAMES):
-            full_path = os.path.join(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
+            full_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
             MyLogger.debug(f"--> Create or replace the \"{full_path}\" file with \"{encoding}\" encoding.")
             with open(full_path, 'w', encoding=encoding, errors='replace') as f:
                 f.write(CONSTANTS.EXAMPLE_CONTENT)

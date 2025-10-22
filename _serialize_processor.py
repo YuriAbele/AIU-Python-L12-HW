@@ -92,7 +92,8 @@ class SerializeProcessor:
 
         MyLogger.info("\nSaving JSON to file:START")
 
-        output_path = os.path.join(CONSTANTS.BASE_PATH_OUTPUT, "encoded_examples.json")
+        output_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_OUTPUT, CONSTANTS.FILE_NAME_JSON_OUTPUT)
+        
         with open(output_path, 'w', encoding='utf-8') as output_file:
             output_size = output_file.write(json_string)
             MyLogger.debug(f"\t--> Saved {output_size} bytes to \"{output_path}\" file.")

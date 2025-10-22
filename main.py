@@ -1,5 +1,5 @@
 from _init_logging import MyLogger
-from _ensure_fs_structure import ensure_fs_structure
+from _fs_helper import FileSystemHelper
 from _encoding_examples import EncodingExamples
 from _serialize_processor import SerializeProcessor
 
@@ -7,7 +7,7 @@ MyLogger.log_start()
 ################################################################################
 
 # Task 1.1. Ensure the file system structure is in place
-ensure_fs_structure()
+FileSystemHelper.ensure_fs_structure()
 
 ################################################################################
 MyLogger.print_split_line()
