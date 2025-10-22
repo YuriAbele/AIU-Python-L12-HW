@@ -6,7 +6,7 @@ from pathlib import Path
 
 import _CONSTANTS as CONSTANTS
 
-class MyLogger:
+class LoggingHelper:
     __SPLIT_LINE: str = "#" * 100
     
     def __init__(self) -> None:
@@ -25,8 +25,8 @@ class MyLogger:
             level=logging.DEBUG,
             datefmt='%Y-%m-%d %H:%M:%S')
 
-        logging.info(f"STARTED {MyLogger.__SPLIT_LINE}")
-        print(Fore.LIGHTYELLOW_EX + f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{MyLogger.__SPLIT_LINE}")
+        logging.info(f"STARTED {LoggingHelper.__SPLIT_LINE}")
+        print(Fore.LIGHTYELLOW_EX + f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{LoggingHelper.__SPLIT_LINE}")
 
 
     @staticmethod
@@ -36,7 +36,7 @@ class MyLogger:
         """
 
         if is_root:
-            MyLogger.debug(f"{directory}/".replace("\\", "/"))
+            LoggingHelper.debug(f"{directory}/".replace("\\", "/"))
 
         # Get the list of contents, ignoring "hidden" files/folders
         # (optionally, you can remove startswith('.'))
@@ -50,22 +50,22 @@ class MyLogger:
 
         for pointer, path in zip(pointers, items):
             # Print the current item
-            MyLogger.debug(f"{prefix}{pointer}{path.name}")
+            LoggingHelper.debug(f"{prefix}{pointer}{path.name}")
             
             # If it is a directory, recursively call it for it.
             if path.is_dir():
                 # Determine what prefix to pass "deeper"
                 extension = "│   " if pointer == "├── " else "    "
-                MyLogger.display_tree(path, prefix=prefix + extension, is_root=False)
+                LoggingHelper.display_tree(path, prefix=prefix + extension, is_root=False)
     
     @staticmethod
     def log_end():
-        logging.info(f"FINISHED {MyLogger.__SPLIT_LINE}")
-        print(Fore.LIGHTYELLOW_EX + f"\n{MyLogger.__SPLIT_LINE}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{"="*50}\n")
+        logging.info(f"FINISHED {LoggingHelper.__SPLIT_LINE}")
+        print(Fore.LIGHTYELLOW_EX + f"\n{LoggingHelper.__SPLIT_LINE}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{"="*50}\n")
         
     @staticmethod
     def print_split_line():
-        print(Fore.LIGHTYELLOW_EX + "\n" + MyLogger.__SPLIT_LINE)
+        print(Fore.LIGHTYELLOW_EX + "\n" + LoggingHelper.__SPLIT_LINE)
         
     @staticmethod
     def debug(message: str):
@@ -84,9 +84,9 @@ class MyLogger:
 
     @staticmethod
     def tests():
-        MyLogger.log_start()
-        MyLogger.print_split_line()
-        MyLogger.info("This is an INFO message.")
-        MyLogger.debug("This is a DEBUG message.")
-        MyLogger.error("This is an ERROR message.")
-        MyLogger.log_end()
+        LoggingHelper.log_start()
+        LoggingHelper.print_split_line()
+        LoggingHelper.info("This is an INFO message.")
+        LoggingHelper.debug("This is a DEBUG message.")
+        LoggingHelper.error("This is an ERROR message.")
+        LoggingHelper.log_end()

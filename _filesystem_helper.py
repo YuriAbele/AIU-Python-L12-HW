@@ -1,7 +1,7 @@
 from datetime import datetime
 import os
 
-from _logging_helper import MyLogger
+from _logging_helper import LoggingHelper
 import _CONSTANTS as CONSTANTS
 
 class FileInfo:
@@ -22,11 +22,11 @@ class FileSystemHelper:
         """
         Ensure the filesystem structure defined in FS_TEMPLATE exists.
         """
-        MyLogger.info(f"\nEnsuring filesystem structure:START\n{CONSTANTS.FS_STRUCTURE}\n")
+        LoggingHelper.info(f"\nEnsuring filesystem structure:START\n{CONSTANTS.FS_STRUCTURE}\n")
         for path in CONSTANTS.FS_STRUCTURE:
-            MyLogger.debug(f"--> Ensuring directory exists: {path}")
+            LoggingHelper.debug(f"--> Ensuring directory exists: {path}")
             os.makedirs(path, exist_ok=True)
-        MyLogger.info("Ensuring filesystem structure:END")
+        LoggingHelper.info("Ensuring filesystem structure:END")
     
     
     @staticmethod
@@ -43,7 +43,7 @@ class FileSystemHelper:
         Clean up previously generated encoding example files.
         """
         
-        MyLogger.info("\nCleaning encoding example files:START")
+        LoggingHelper.info("\nCleaning encoding example files:START")
 
         count_files_before_delete = 0
         
@@ -52,7 +52,7 @@ class FileSystemHelper:
         for file_name in file_names:
             full_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
             if os.path.isfile(full_path):
-                MyLogger.debug(f"--> Delete the \"{full_path}\" file.")
+                LoggingHelper.debug(f"--> Delete the \"{full_path}\" file.")
                 os.remove(full_path)
 
         file_names = os.listdir(CONSTANTS.BASE_PATH_DATA_PROCESSED)
@@ -60,13 +60,13 @@ class FileSystemHelper:
         for file_name in file_names:
             full_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_PROCESSED, file_name)
             if os.path.isfile(full_path):
-                MyLogger.debug(f"--> Delete the \"{full_path}\" file.")
+                LoggingHelper.debug(f"--> Delete the \"{full_path}\" file.")
                 os.remove(full_path)
                 
         count_files_after_delete = len(os.listdir(CONSTANTS.BASE_PATH_DATA_RAW)) + len(os.listdir(CONSTANTS.BASE_PATH_DATA_PROCESSED))
-        MyLogger.debug(f"Files before: {count_files_before_delete}, Files after: {count_files_after_delete}")
+        LoggingHelper.debug(f"Files before: {count_files_before_delete}, Files after: {count_files_after_delete}")
         
-        MyLogger.info("Cleaning encoding example files:END")
+        LoggingHelper.info("Cleaning encoding example files:END")
 
     @staticmethod
     def collect_tree_info(directory: str) -> list[FileInfo]:

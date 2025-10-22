@@ -3,7 +3,7 @@ import json
 import os
 import _CONSTANTS as CONSTANTS
 from _filesystem_helper import FileSystemHelper
-from _logging_helper import MyLogger
+from _logging_helper import LoggingHelper
 
 class FilesPairData:
     def __init__(self,
@@ -28,7 +28,7 @@ class SerializationHelper:
         Read multiple text files from the base data directory and return their contents as a list of FilesPairData.
         """
         
-        MyLogger.info("\nRead many files:START")
+        LoggingHelper.info("\nRead many files:START")
         
         output_list: list[FilesPairData] = []
         for (file_name, encoding_name) in zip(CONSTANTS.FILE_NAMES, CONSTANTS.ENCODING_NAMES):
@@ -36,7 +36,7 @@ class SerializationHelper:
             # file_data_dict = file_data.to_dict()
             output_list.append(file_pair_data)
 
-        MyLogger.info("Read many files:END")
+        LoggingHelper.info("Read many files:END")
         return output_list
 
     @staticmethod
@@ -44,7 +44,7 @@ class SerializationHelper:
         """
         Read a pair of text files (raw and processed), using the specified encoding, and return a FileData object.
         """
-        MyLogger.info(f"\tProcess file_name \"{file_name}\":START")
+        LoggingHelper.info(f"\tProcess file_name \"{file_name}\":START")
 
         # Construct full file paths
         full_path_raw = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
@@ -59,14 +59,14 @@ class SerializationHelper:
         # Read the raw file
         with open(full_path_raw, 'r', encoding=encoding_name) as input_file:
             file_data.content_raw = input_file.read()
-            MyLogger.debug(f"\t\t--> Read {len(file_data.content_raw)} characters from \"{full_path_raw}\" file.")
+            LoggingHelper.debug(f"\t\t--> Read {len(file_data.content_raw)} characters from \"{full_path_raw}\" file.")
 
         # Read the processed file
         with open(full_path_processed, 'r', encoding=encoding_name) as input_file:
             file_data.content_processed = input_file.read()
-            MyLogger.debug(f"\t\t--> Read {len(file_data.content_processed)} characters from \"{full_path_processed}\" file.")
+            LoggingHelper.debug(f"\t\t--> Read {len(file_data.content_processed)} characters from \"{full_path_processed}\" file.")
 
-        MyLogger.info(f"\tProcess file_name \"{file_name}\":END")
+        LoggingHelper.info(f"\tProcess file_name \"{file_name}\":END")
         return file_data
         
     @staticmethod
@@ -76,12 +76,12 @@ class SerializationHelper:
         """
         
         list_size = len(source_list)
-        MyLogger.info(f"\nConvert a list of {list_size} FilesPairData items to a JSON:START")
+        LoggingHelper.info(f"\nConvert a list of {list_size} FilesPairData items to a JSON:START")
         
         output_json = json.dumps(source_list, default=lambda o: o.__dict__, indent=4)
-        MyLogger.debug(f"\t--> Got {len(output_json)} characters")
+        LoggingHelper.debug(f"\t--> Got {len(output_json)} characters")
 
-        MyLogger.info(f"Convert a list of {list_size} FilesPairData items to a JSON:END")
+        LoggingHelper.info(f"Convert a list of {list_size} FilesPairData items to a JSON:END")
         return output_json
         
     @staticmethod
@@ -90,12 +90,12 @@ class SerializationHelper:
         Save the JSON string to a file.
         """
 
-        MyLogger.info("\nSaving JSON to file:START")
+        LoggingHelper.info("\nSaving JSON to file:START")
 
         output_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_OUTPUT, CONSTANTS.FILE_NAME_JSON_OUTPUT)
         
         with open(output_path, 'w', encoding='utf-8') as output_file:
             output_size = output_file.write(json_string)
-            MyLogger.debug(f"\t--> Saved {output_size} bytes to \"{output_path}\" file.")
+            LoggingHelper.debug(f"\t--> Saved {output_size} bytes to \"{output_path}\" file.")
 
-        MyLogger.info("Saving JSON to file:END")
+        LoggingHelper.info("Saving JSON to file:END")
