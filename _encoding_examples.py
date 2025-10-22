@@ -1,4 +1,3 @@
-import os
 import chardet
 import _CONSTANTS as CONSTANTS
 from _filesystem_helper import FileSystemHelper
