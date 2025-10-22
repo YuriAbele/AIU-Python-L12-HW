@@ -22,12 +22,12 @@ class MyLogger:
             datefmt='%Y-%m-%d %H:%M:%S')
 
         logging.info(f"STARTED {MyLogger.__SPLIT_LINE}")
-        print(f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}{MyLogger.__SPLIT_LINE}")
+        print(Fore.LIGHTYELLOW_EX + f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{MyLogger.__SPLIT_LINE}\n")
     
     @staticmethod
     def log_end():
         logging.info(f"FINISHED {MyLogger.__SPLIT_LINE}")
-        print(f"\n{MyLogger.__SPLIT_LINE}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{"="*50}\n")
+        print(Fore.LIGHTYELLOW_EX + f"\n{MyLogger.__SPLIT_LINE}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{"="*50}\n")
         
     @staticmethod
     def print_split_line():
@@ -47,13 +47,12 @@ class MyLogger:
     def error(message: str):
         print(Fore.RED + message)
         logging.error(message)
-        
-MyLogger.log_start()
 
-MyLogger.print_split_line()
-
-MyLogger.info("This is an info message.")
-MyLogger.debug("This is a debug message.")
-MyLogger.error("This is an error message.")
-
-MyLogger.log_end()
+    @staticmethod
+    def tests():
+        MyLogger.log_start()
+        MyLogger.print_split_line()
+        MyLogger.info("This is an INFO message.")
+        MyLogger.debug("This is a DEBUG message.")
+        MyLogger.error("This is an ERROR message.")
+        MyLogger.log_end()

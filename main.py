@@ -1,13 +1,18 @@
 from datetime import datetime
-import logging
 
-SPLIT_LINE = "\n" + "#" * 100 + "\n"
+from ensure_fs_structure import ensure_fs_structure
+from init_logging import MyLogger
 
-print("")
+################################################################################
 
-print(SPLIT_LINE)
+MyLogger.log_start()
 
-# ... Your main code logic goes here ...
+ensure_fs_structure()
 
-print(SPLIT_LINE)
-print(f"\n{"="*50}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n\n")
+MyLogger.info("This is an info message.")
+MyLogger.debug("This is a debug message.")
+MyLogger.error("This is an error message.")
+
+MyLogger.log_end()
+
+################################################################################
