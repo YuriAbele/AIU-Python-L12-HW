@@ -1,7 +1,7 @@
 from datetime import datetime
 import json
 import os
-from _CONSTANTS import CONSTANTS
+import _CONSTANTS as CONSTANTS
 from _fs_helper import FileSystemHelper
 from _init_logging import MyLogger
 

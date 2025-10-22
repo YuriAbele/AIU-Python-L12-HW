@@ -1,6 +1,6 @@
 import os
 import chardet
-from _CONSTANTS import CONSTANTS
+import _CONSTANTS as CONSTANTS
 from _fs_helper import FileSystemHelper
 from _init_logging import MyLogger
 
@@ -39,7 +39,7 @@ class EncodingExamples:
             full_path = os.path.join(CONSTANTS.BASE_PATH_DATA_RAW, file_name)
             MyLogger.debug(f"--> Create or replace the \"{full_path}\" file with \"{encoding}\" encoding.")
             with open(full_path, 'w', encoding=encoding, errors='replace') as f:
-                f.write(CONSTANTS.CONTENT)
+                f.write(CONSTANTS.EXAMPLE_CONTENT)
                 
         MyLogger.info("Generating encoding example files:END")
         

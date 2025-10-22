@@ -1,6 +1,9 @@
+import os
 from datetime import datetime
 import logging
 from colorama import Fore, Back, Style, init as colorama_init
+
+import _CONSTANTS as CONSTANTS
 
 class MyLogger:
     __SPLIT_LINE: str = "#" * 100
@@ -15,7 +18,7 @@ class MyLogger:
         
         # We will use root logger and root logger configuration
         logging.basicConfig(
-            filename='project_root/logs/app.log', # Имя файла
+            filename=os.path.join(CONSTANTS.BASE_PATH_LOGS, CONSTANTS.FILE_NAME_LOG), # Имя файла
             filemode='w',       # 'w' - перезаписать, 'a' - добавить (по умолчанию)
             format='%(asctime)s - %(levelname)s - %(message)s',
             level=logging.DEBUG,

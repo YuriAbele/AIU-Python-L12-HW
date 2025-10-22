@@ -2,24 +2,16 @@
 
 import os
 
+import _CONSTANTS as CONSTANTS
 from _init_logging import MyLogger
 
-FS_TEMPLATE = [
-    "project_root",
-    "project_root/data",
-    "project_root/data/raw",
-    "project_root/data/processed",
-    "project_root/logs",
-    "project_root/backups",
-    "project_root/output",
-]
 
 def ensure_fs_structure():
     """
     Ensure the filesystem structure defined in FS_TEMPLATE exists.
     """
-    MyLogger.info(f"\nEnsuring filesystem structure:START\n{FS_TEMPLATE}")
-    for path in FS_TEMPLATE:
+    MyLogger.info(f"\nEnsuring filesystem structure:START\n{CONSTANTS.FS_STRUCTURE}\n")
+    for path in CONSTANTS.FS_STRUCTURE:
         MyLogger.debug(f"--> Ensuring directory exists: {path}")
         os.makedirs(path, exist_ok=True)
     MyLogger.info("Ensuring filesystem structure:END")
