@@ -1,10 +1,6 @@
 from pathlib import Path
 
-from helpers.backup_helper import BackupHelper
-from helpers.logging_helper import LoggingHelper
-from helpers.filesystem_helper import FileSystemHelper
-from helpers.encoding_examples import EncodingExamples
-from helpers.serialization_helper import SerializationHelper
+from helpers import *
 import _CONSTANTS as CONSTANTS
 
 LoggingHelper.log_start()
