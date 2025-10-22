@@ -22,7 +22,7 @@ class MyLogger:
             datefmt='%Y-%m-%d %H:%M:%S')
 
         logging.info(f"STARTED {MyLogger.__SPLIT_LINE}")
-        print(Fore.LIGHTYELLOW_EX + f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{MyLogger.__SPLIT_LINE}\n")
+        print(Fore.LIGHTYELLOW_EX + f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{MyLogger.__SPLIT_LINE}")
     
     @staticmethod
     def log_end():
@@ -35,8 +35,8 @@ class MyLogger:
         
     @staticmethod
     def debug(message: str):
-        print(Fore.GREEN + message.strip())
-        logging.debug(message)
+        print(Fore.GREEN + message)
+        logging.debug(message.strip())
         
     @staticmethod
     def info(message: str):
