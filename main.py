@@ -2,7 +2,7 @@ from pathlib import Path
 
 from _backup_helper import BackupHelper
 from _init_logging import MyLogger
-from _fs_helper import FileSystemHelper
+from _filesystem_helper import FileSystemHelper
 from _encoding_examples import EncodingExamples
 from _serialization_helper import SerializationHelper
 import _CONSTANTS as CONSTANTS

@@ -1,7 +1,7 @@
 import os
 import chardet
 import _CONSTANTS as CONSTANTS
-from _fs_helper import FileSystemHelper
+from _filesystem_helper import FileSystemHelper
 from _init_logging import MyLogger
 
 class EncodingExamples:
