@@ -1,7 +1,8 @@
 class CONSTANTS:
     
-    PATH_DATA_BASE: str = "project_root/data/raw/"
+    PATH_DATA_RAW: str = "project_root/data/raw/"
     PATH_DATA_PROCESSED: str = "project_root/data/processed/"
+    PATH_OUTPUT: str = "project_root/output/"
 
     FILE_NAMES: list[str] = [
         "example_UTF8.txt",
@@ -11,7 +12,7 @@ class CONSTANTS:
         "example_Windows-1251.txt",
     ]
 
-    ENCODINGS: list[str] = [
+    ENCODING_NAMES: list[str] = [
         "UTF-8",
         "UTF-16",
         "ASCII",

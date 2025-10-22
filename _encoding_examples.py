@@ -1,6 +1,7 @@
 import os
 import chardet
 from _CONSTANTS import CONSTANTS
+from _fs_helper import FileSystemHelper
 from _init_logging import MyLogger
 
 class EncodingExamples:
@@ -13,13 +14,13 @@ class EncodingExamples:
         
         MyLogger.info("\nCleaning encoding example files:START")
         
-        for filename in os.listdir(CONSTANTS.PATH_DATA_BASE):
-            full_path = os.path.join(CONSTANTS.PATH_DATA_BASE, filename)
+        for file_name in os.listdir(CONSTANTS.PATH_DATA_RAW):
+            full_path = os.path.join(CONSTANTS.PATH_DATA_RAW, file_name)
             if os.path.isfile(full_path):
                 MyLogger.debug(f"--> Remove the \"{full_path}\" file.")
                 os.remove(full_path)
-        for filename in os.listdir(CONSTANTS.PATH_DATA_PROCESSED):
-            full_path = os.path.join(CONSTANTS.PATH_DATA_PROCESSED, filename)
+        for file_name in os.listdir(CONSTANTS.PATH_DATA_PROCESSED):
+            full_path = os.path.join(CONSTANTS.PATH_DATA_PROCESSED, file_name)
             if os.path.isfile(full_path):
                 MyLogger.debug(f"--> Remove the \"{full_path}\" file.")
                 os.remove(full_path)
@@ -34,8 +35,8 @@ class EncodingExamples:
         
         MyLogger.info("\nGenerating encoding example files:START")
         
-        for filename, encoding in zip(CONSTANTS.FILE_NAMES, CONSTANTS.ENCODINGS):
-            full_path = os.path.join(CONSTANTS.PATH_DATA_BASE, filename)
+        for file_name, encoding in zip(CONSTANTS.FILE_NAMES, CONSTANTS.ENCODING_NAMES):
+            full_path = os.path.join(CONSTANTS.PATH_DATA_RAW, file_name)
             MyLogger.debug(f"--> Create or replace the \"{full_path}\" file with \"{encoding}\" encoding.")
             with open(full_path, 'w', encoding=encoding, errors='replace') as f:
                 f.write(CONSTANTS.CONTENT)
@@ -51,22 +52,22 @@ class EncodingExamples:
 
         MyLogger.info("\nReading encoding example files:START")
 
-        for filename in CONSTANTS.FILE_NAMES:
-            MyLogger.debug(f"--> Processing file: {filename}")
-            full_path_input = os.path.join(CONSTANTS.PATH_DATA_BASE, filename)
-            full_path_output = os.path.join(CONSTANTS.PATH_DATA_PROCESSED, filename).split('.')[0] + "_processed." + filename.split('.')[-1] # Append "_processed" to the filename before the extension
-            MyLogger.debug(f"\t--> Read the \"{full_path_input}\" file.")
-            with open(full_path_input, 'rb') as input_file:
+        for file_name in CONSTANTS.FILE_NAMES:
+            MyLogger.debug(f"--> Processing file: {file_name}")
+            full_path_raw = FileSystemHelper.calc_file_full_path(CONSTANTS.PATH_DATA_RAW, file_name)
+            full_path_processed = FileSystemHelper.calc_file_full_path(CONSTANTS.PATH_DATA_PROCESSED, file_name, suffix="_processed")
+            MyLogger.debug(f"\t--> Read the \"{full_path_raw}\" file.")
+            with open(full_path_raw, 'rb') as input_file:
                 content_bytes = input_file.read()
                 encoding_detected = chardet.detect(content_bytes)
                 encoding_detected_name = encoding_detected["encoding"] if encoding_detected["encoding"] is not None else "utf-8" # Fallback to utf-8 if detection fails
-                MyLogger.debug(f"\t--> Detected encoding for \"{full_path_input}\": {encoding_detected_name} with confidence {encoding_detected['confidence']:.2f}")
+                MyLogger.debug(f"\t--> Detected encoding for \"{full_path_raw}\": {encoding_detected_name} with confidence {encoding_detected['confidence']:.2f}")
                 content_decoded = content_bytes.decode(encoding=encoding_detected_name, errors='replace')
                 
                 content_decoded_swapped = content_decoded.swapcase()
                 # IMPORTANT: Because we read the file in binary mode, we need to write it back in text mode with newline='' to avoid adding extra newlines on Windows
-                with open(full_path_output, 'w', encoding=encoding_detected_name, errors='replace', newline='') as output_file:
-                    MyLogger.debug(f"\t--> Write the processed content to \"{full_path_output}\" file.")
+                with open(full_path_processed, 'w', encoding=encoding_detected_name, errors='replace', newline='') as output_file:
+                    MyLogger.debug(f"\t--> Write the processed content to \"{full_path_processed}\" file.")
                     output_file.write(content_decoded_swapped)
 
         MyLogger.info("Reading encoding example files:END")
