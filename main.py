@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from ensure_fs_structure import ensure_fs_structure
-from init_logging import MyLogger
+from _ensure_fs_structure import ensure_fs_structure
+from _init_logging import MyLogger
 
 ################################################################################
 
