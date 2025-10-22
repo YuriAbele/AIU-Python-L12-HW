@@ -1,0 +1,30 @@
+{
+    "company": "TechCorp",
+    "employees": [
+        {
+            "name": "Mikhail",
+            "role": "Engineer",
+            "age": 30
+        },
+        {
+            "name": "Tatyana",
+            "role": "Manager",
+            "age": 35
+        },
+        {
+            "name": "Oksana",
+            "role": "CTO",
+            "age": 40
+        }
+    ],
+    "location": {
+        "city": "SBK",
+        "state": "Bur",
+        "zipcode": "671700"
+    },
+    "departments": [
+        "Development",
+        "Management",
+        "HR"
+    ]
+}
