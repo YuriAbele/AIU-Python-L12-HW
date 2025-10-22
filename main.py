@@ -3,7 +3,7 @@ from pathlib import Path
 from _backup_helper import BackupHelper
 from _logging_helper import LoggingHelper
 from _filesystem_helper import FileSystemHelper
-from _encoding_examples import EncodingExamples
+from _encoding_helper import EncodingExamples
 from _serialization_helper import SerializationHelper
 import _CONSTANTS as CONSTANTS
 
