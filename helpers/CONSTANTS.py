@@ -11,7 +11,8 @@ BASE_PATH_BACKUPS: str = f"{BASE_PATH_ROOT}/backups"
 BASE_FILE_NAME_BACKUP: str = "backup"
 
 FILE_NAME_LOG: str = "app.log"
-FILE_NAME_JSON_OUTPUT: str = "processed_data.json"
+FILE_NAME_JSON_OUTPUT_FILE_PAIRS: str = "processed_data.json"
+FILE_NAME_JSON_OUTPUT_FILE_INFOS: str = "processed_data_file_infos.json"
 
 FS_STRUCTURE = [
     BASE_PATH_ROOT, # root directory

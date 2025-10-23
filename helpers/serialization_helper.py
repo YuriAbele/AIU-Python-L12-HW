@@ -2,6 +2,8 @@ from datetime import datetime
 import json
 import os
 
+from helpers.file_info import FileInfo
+
 from . import CONSTANTS as CONSTANTS
 from .logging_helper import LoggingHelper
 from .filesystem_helper import FileSystemHelper
@@ -70,32 +72,75 @@ class SerializationHelper:
         return file_data
         
     @staticmethod
-    def serialize_files_pair_data_to_json(source_list: list[FilesPairData]) -> str:
+    def serialize_list_to_json_array(source_list: list) -> str:
         """
         Convert a list of FilesPairData to a JSON string.
         """
         
         list_size = len(source_list)
-        LoggingHelper.info(f"\nConvert a list of {list_size} FilesPairData items to a JSON:START")
+        LoggingHelper.info(f"\nConvert a list to a JSON array:START")
         
         output_json = json.dumps(source_list, default=lambda o: o.__dict__, indent=4)
         LoggingHelper.debug(f"\t--> Got {len(output_json)} characters")
 
-        LoggingHelper.info(f"Convert a list of {list_size} FilesPairData items to a JSON:END")
+        LoggingHelper.info(f"Convert a list to a JSON array:END")
         return output_json
         
     @staticmethod
-    def save_json_to_file(json_string: str) -> None:
+    def save_json_to_file(json_string: str, output_path: str) -> None:
         """
         Save the JSON string to a file.
         """
 
         LoggingHelper.info("\nSaving JSON to file:START")
-
-        output_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_OUTPUT, CONSTANTS.FILE_NAME_JSON_OUTPUT)
         
         with open(output_path, 'w', encoding='utf-8') as output_file:
             output_size = output_file.write(json_string)
             LoggingHelper.debug(f"\t--> Saved {output_size} bytes to \"{output_path}\" file.")
 
         LoggingHelper.info("Saving JSON to file:END")
+
+    @staticmethod
+    def deserialize_json_array_to_fileinfo_list(json_string: str) -> list[FileInfo]:
+        """
+        Convert a JSON string to a list of FileInfo objects.
+        """
+        
+        LoggingHelper.info(f"\nConvert a JSON array to a list:START")
+        
+        data_list = json.loads(json_string)
+        output_list: list[FileInfo] = []
+        for item in data_list:
+            file_info = FileInfo(
+                file_name=item.get('file_name'),
+                full_path=item.get('full_path'),
+                size=item.get('size'),
+                last_modified_at=item.get('last_modified_at'),
+                hash=item.get('hash'),
+            )
+            output_list.append(file_info)
+        
+        LoggingHelper.debug(f"\t--> Got {len(output_list)} FileInfo objects")
+
+        LoggingHelper.info(f"Convert a JSON array to a list:END")
+        return output_list
+    
+    @staticmethod
+    def compare_fileinfo_lists(list1: list[FileInfo], list2: list[FileInfo]) -> bool:
+        """
+        Compare two lists of FileInfo objects for equality.
+        """
+        
+        LoggingHelper.info(f"\nCompare file info lists:START")
+
+        if len(list1) != len(list2):
+            return False
+        LoggingHelper.debug(f"\t--> Both lists have {len(list1)} items")
+        
+        for fi1, fi2 in zip(list1, list2):
+            if fi1.file_name != fi2.file_name or fi1.full_path != fi2.full_path or fi1.size != fi2.size or fi1.last_modified_at != fi2.last_modified_at:
+                return False
+        LoggingHelper.debug(f"\t--> Both lists are identical")
+            
+        LoggingHelper.info(f"Compare file info lists:END")
+        return True

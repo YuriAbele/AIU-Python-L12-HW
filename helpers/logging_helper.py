@@ -57,7 +57,25 @@ class LoggingHelper:
                 # Determine what prefix to pass "deeper"
                 extension = "│   " if pointer == "├── " else "    "
                 LoggingHelper.display_tree(path, prefix=prefix + extension, is_root=False)
-    
+
+    @staticmethod
+    def debug_file_contents(file_path: str, message: str | None = None) -> None:
+        """
+        Print the contents of a file to the console.
+        """
+        LoggingHelper.info(f"\nPrinting file contents:START")
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                contents = file.read()
+                if message:
+                    contents = message + "\n" + contents
+                contents = "File: " + file_path + "\n" + contents
+                print(Fore.GREEN + contents)
+                logging.debug(contents.strip())
+        except Exception as e:
+            LoggingHelper.error(f"Error reading file {file_path}: {e}")
+        LoggingHelper.info("Printing file contents:END")                
+
     @staticmethod
     def log_end():
         logging.info(f"FINISHED {LoggingHelper.__SPLIT_LINE}")

@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+import hashlib
 
 from . import CONSTANTS as CONSTANTS
 from .logging_helper import LoggingHelper
@@ -17,7 +18,8 @@ class FileSystemHelper:
             LoggingHelper.debug(f"--> Ensuring directory exists: {path}")
             os.makedirs(path, exist_ok=True)
         LoggingHelper.info("Ensuring filesystem structure:END")
-    
+
+#######################################################################################################
     
     @staticmethod
     def calc_file_full_path(base_path: str, file_name: str, suffix: str = "") -> str:
@@ -26,6 +28,8 @@ class FileSystemHelper:
         """
         file_full_path = (os.path.join(os.path.curdir, base_path, file_name) if suffix == "" else os.path.join(os.path.curdir, base_path, file_name.split('.')[0] + suffix + "." + file_name.split('.')[-1])).replace("\\", "/")
         return file_full_path
+
+#######################################################################################################
 
     @staticmethod
     def clean_data_directory() -> None:
@@ -58,22 +62,65 @@ class FileSystemHelper:
         
         LoggingHelper.info("Cleaning encoding example files:END")
 
+#######################################################################################################
+
     @staticmethod
-    def collect_tree_info(directory: str) -> list[FileInfo]:
+    def collect_tree_info(directory_path: str) -> list[FileInfo]:
         """
         Collects information about all files in the directory and its subdirectories.
         """
         file_info_list = []
-        for root, dirs, files in os.walk(directory):
+        for root, dirs, files in os.walk(directory_path):
             for file in files:
                 full_path = os.path.join(root, file).replace("\\", "/")
                 size = os.path.getsize(full_path)
                 last_modified_at = datetime.fromtimestamp(os.path.getmtime(full_path)).strftime('%Y-%m-%d %H:%M:%S')
+                hash = FileSystemHelper.calculate_file_hash(full_path)
                 file_info = FileInfo(
                     file_name=file,
                     full_path=full_path,
                     size=size,
-                    last_modified_at=last_modified_at
+                    last_modified_at=last_modified_at,
+                    hash=hash
                 )
                 file_info_list.append(file_info)
         return file_info_list
+
+#######################################################################################################
+
+    @staticmethod
+    def calculate_file_hash(file_path: str, hash_algorithm: str = "sha256", block_size: int = 65536) -> str | None:
+        """
+        Calculates the hash of a file by reading it in chunks.
+
+        :param filename: Path to the file
+        :param hash_algorithm: Hashing algorithm (e.g., 'sha256', 'md5', 'sha1')
+        :param block_size: Size of the block to read the file (in bytes)
+        :return: A string with the hash in hexadecimal format, or None on error
+        """
+        
+        # Create a hash object
+        try:
+            hash_obj = hashlib.new(hash_algorithm)
+        except ValueError:
+            print(f"Error: Unsupported hash algorithm '{hash_algorithm}'")
+            return None
+
+        try:
+            # Open the file for reading in binary mode ('rb')
+            with open(file_path, 'rb') as f:
+                # Read the file in blocks until the end is reached
+                # iter(lambda: f.read(block_size), b'') is an efficient way to loop
+                for block in iter(lambda: f.read(block_size), b''):
+                    # Update the hash object with each block of data
+                    hash_obj.update(block)
+            
+            # Return the hash as a hexadecimal string
+            return hash_obj.hexdigest()
+
+        except FileNotFoundError:
+            print(f"Error: File not found '{file_path}'")
+            return None
+        except IOError as e:
+            print(f"Error reading file '{file_path}': {e}")
+            return None
