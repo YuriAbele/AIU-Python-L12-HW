@@ -1,0 +1,38 @@
+{
+  "type": "array",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "minItems": 1,
+  "uniqueItems": true,
+  "items": {
+    "type": "object",
+    "required": [
+      "file_name",
+      "full_path",
+      "size",
+      "last_modified_at",
+      "hash"
+    ],
+    "properties": {
+      "file_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "full_path": {
+        "type": "string",
+        "minLength": 1
+      },
+      "size": {
+        "type": "number"
+      },
+      "last_modified_at": {
+        "type": "string",
+        "minLength": 1
+      },
+      "hash": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
