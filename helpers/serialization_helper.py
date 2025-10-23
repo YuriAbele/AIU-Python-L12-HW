@@ -3,11 +3,11 @@ from datetime import datetime
 import json
 from jsonschema import validate, ValidationError
 
-from helpers.file_info import FileInfo
-
 from . import CONSTANTS as CONSTANTS
+from .file_info import FileInfo
 from .logging_helper import LoggingHelper
 from .filesystem_helper import FileSystemHelper
+
 class FilesPairData:
     def __init__(self,
                  file_name: str | None = None,
@@ -86,20 +86,6 @@ class SerializationHelper:
 
         LoggingHelper.info(f"Convert a list to a JSON array:END")
         return output_json
-        
-    @staticmethod
-    def save_json_to_file(json_string: str, output_path: str) -> None:
-        """
-        Save the JSON string to a file.
-        """
-
-        LoggingHelper.info("\nSaving JSON to file:START")
-        
-        with open(output_path, 'w', encoding='utf-8') as output_file:
-            output_size = output_file.write(json_string)
-            LoggingHelper.debug(f"--> Saved {output_size} bytes to \"{output_path}\" file.")
-
-        LoggingHelper.info("Saving JSON to file:END")
 
     @staticmethod
     def deserialize_json_array_to_fileinfo_list(json_string: str) -> list[FileInfo]:
@@ -161,7 +147,7 @@ class SerializationHelper:
             LoggingHelper.debug(f"--> JSON is valid against the schema.")
             result = True
         except ValidationError as ve:
-            LoggingHelper.error(f"--> JSON validation error: {ve.message}")
+            LoggingHelper.warn(f"--> JSON validation error: {ve.message}")
             result = False
 
         LoggingHelper.info(f"Validate JSON against schema:END")

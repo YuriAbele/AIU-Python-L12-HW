@@ -79,11 +79,11 @@ class LoggingHelper:
     @staticmethod
     def log_end():
         logging.info(f"FINISHED {LoggingHelper.__SPLIT_LINE}")
-        print(Fore.LIGHTYELLOW_EX + f"\n{LoggingHelper.__SPLIT_LINE}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{"="*50}\n")
+        print(Fore.LIGHTMAGENTA_EX + f"\n{LoggingHelper.__SPLIT_LINE}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{"="*50}\n")
         
     @staticmethod
     def print_split_line():
-        print(Fore.LIGHTYELLOW_EX + "\n" + LoggingHelper.__SPLIT_LINE)
+        print(Fore.LIGHTMAGENTA_EX + "\n" + LoggingHelper.__SPLIT_LINE)
         
     @staticmethod
     def debug(message: str):
@@ -96,6 +96,11 @@ class LoggingHelper:
         logging.info(message.strip())
         
     @staticmethod
+    def warn(message: str):
+        print(Fore.LIGHTYELLOW_EX + message)
+        logging.warning(message.strip())
+        
+    @staticmethod
     def error(message: str):
         print(Fore.RED + message)
         logging.error(message.strip())
@@ -104,7 +109,8 @@ class LoggingHelper:
     def tests():
         LoggingHelper.log_start()
         LoggingHelper.print_split_line()
-        LoggingHelper.info("This is an INFO message.")
         LoggingHelper.debug("This is a DEBUG message.")
+        LoggingHelper.info("This is an INFO message.")
+        LoggingHelper.warn("This is an ERROR message.")
         LoggingHelper.error("This is an ERROR message.")
         LoggingHelper.log_end()

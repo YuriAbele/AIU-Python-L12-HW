@@ -1,6 +1,3 @@
-from pathlib import Path
-from pprint import pprint
-
 from jsonschema import ValidationError
 
 from helpers import *
@@ -31,7 +28,7 @@ LoggingHelper.print_split_line()
 many_files_list = SerializationHelper.read_many_files()
 json_string = SerializationHelper.serialize_list_to_json_array(many_files_list)
 output_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_OUTPUT, CONSTANTS.FILE_NAME_JSON_OUTPUT_FILE_PAIRS_LIST)
-SerializationHelper.save_json_to_file(json_string, output_path)
+FileSystemHelper.save_text_to_file(json_string, output_path)
 
 ################################################################################
 LoggingHelper.print_split_line()
@@ -59,7 +56,7 @@ file_infos_to_serialize = FileSystemHelper.collect_tree_info(CONSTANTS.BASE_PATH
 print(*file_infos_to_serialize, sep="\n")
 json_string = SerializationHelper.serialize_list_to_json_array(file_infos_to_serialize)
 output_path = FileSystemHelper.calc_file_full_path(CONSTANTS.BASE_PATH_OUTPUT, CONSTANTS.FILE_NAME_JSON_OUTPUT_FILE_INFOS_LIST)
-SerializationHelper.save_json_to_file(json_string, output_path)
+FileSystemHelper.save_text_to_file(json_string, output_path)
 LoggingHelper.debug_file_contents(output_path, message="Contents of the file infos JSON output file:")
 file_infos_deserialized = SerializationHelper.deserialize_json_array_to_fileinfo_list(json_string)
 are_original_and_deserialized_lists_equal = SerializationHelper.compare_fileinfo_lists(file_infos_to_serialize, file_infos_deserialized)

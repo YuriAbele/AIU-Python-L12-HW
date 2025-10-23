@@ -164,3 +164,20 @@ class FileSystemHelper:
             
         LoggingHelper.info(f"Loading file contents as string:END")
         return result
+    
+        
+    @staticmethod
+    def save_text_to_file(text: str, output_path: str) -> None:
+        """
+        Save the text to a file.
+        """
+
+        LoggingHelper.info("\nSaving text to file:START")
+        
+        with open(output_path, 'w', encoding='utf-8') as output_file:
+            output_size = output_file.write(text)
+            LoggingHelper.debug(f"--> Saved {output_size} bytes to \"{output_path}\" file.")
+
+        LoggingHelper.info("Saving text to file:END")
+    
+#######################################################################################################
