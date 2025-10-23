@@ -1,0 +1,418 @@
+2025-10-23 17:53:20 - INFO - STARTED ####################################################################################################
+2025-10-23 17:53:20 - INFO - Ensuring filesystem structure:START
+['project_root', 'project_root/logs', 'project_root/data', 'project_root/data/raw', 'project_root/data/processed', 'project_root/output', 'project_root/backups']
+2025-10-23 17:53:20 - DEBUG - --> Ensuring directory exists: project_root
+2025-10-23 17:53:20 - DEBUG - --> Ensuring directory exists: project_root/logs
+2025-10-23 17:53:20 - DEBUG - --> Ensuring directory exists: project_root/data
+2025-10-23 17:53:20 - DEBUG - --> Ensuring directory exists: project_root/data/raw
+2025-10-23 17:53:20 - DEBUG - --> Ensuring directory exists: project_root/data/processed
+2025-10-23 17:53:20 - DEBUG - --> Ensuring directory exists: project_root/output
+2025-10-23 17:53:20 - DEBUG - --> Ensuring directory exists: project_root/backups
+2025-10-23 17:53:20 - INFO - Ensuring filesystem structure:END
+2025-10-23 17:53:20 - INFO - Cleaning encoding example files:START
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_ASCII.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_ISO-8859-5.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_UTF16.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_UTF8.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_Windows-1251.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_ASCII_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_ISO-8859-5_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_UTF16_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_UTF8_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_Windows-1251_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - Files before: 10, Files after: 0
+2025-10-23 17:53:20 - INFO - Cleaning encoding example files:END
+2025-10-23 17:53:20 - INFO - Generating encoding example files:START
+2025-10-23 17:53:20 - DEBUG - --> Create or replace the "./project_root/data/raw/example_UTF8.txt" file with "UTF-8" encoding.
+2025-10-23 17:53:20 - DEBUG - --> Create or replace the "./project_root/data/raw/example_UTF16.txt" file with "UTF-16" encoding.
+2025-10-23 17:53:20 - DEBUG - --> Create or replace the "./project_root/data/raw/example_ASCII.txt" file with "ASCII" encoding.
+2025-10-23 17:53:20 - DEBUG - --> Create or replace the "./project_root/data/raw/example_ISO-8859-5.txt" file with "ISO-8859-5" encoding.
+2025-10-23 17:53:20 - DEBUG - --> Create or replace the "./project_root/data/raw/example_Windows-1251.txt" file with "Windows-1251" encoding.
+2025-10-23 17:53:20 - INFO - Generating encoding example files:END
+2025-10-23 17:53:20 - INFO - Reading encoding example files:START
+2025-10-23 17:53:20 - DEBUG - --> Processing file: example_UTF8.txt
+2025-10-23 17:53:20 - DEBUG - --> Read the "./project_root/data/raw/example_UTF8.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Detected encoding for "./project_root/data/raw/example_UTF8.txt": utf-8 with confidence 0.99
+2025-10-23 17:53:20 - DEBUG - --> Write the processed content to "./project_root/data/processed/example_UTF8_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Processing file: example_UTF16.txt
+2025-10-23 17:53:20 - DEBUG - --> Read the "./project_root/data/raw/example_UTF16.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Detected encoding for "./project_root/data/raw/example_UTF16.txt": UTF-16 with confidence 1.00
+2025-10-23 17:53:20 - DEBUG - --> Write the processed content to "./project_root/data/processed/example_UTF16_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Processing file: example_ASCII.txt
+2025-10-23 17:53:20 - DEBUG - --> Read the "./project_root/data/raw/example_ASCII.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Detected encoding for "./project_root/data/raw/example_ASCII.txt": ascii with confidence 1.00
+2025-10-23 17:53:20 - DEBUG - --> Write the processed content to "./project_root/data/processed/example_ASCII_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Processing file: example_ISO-8859-5.txt
+2025-10-23 17:53:20 - DEBUG - --> Read the "./project_root/data/raw/example_ISO-8859-5.txt" file.
+2025-10-23 17:53:20 - DEBUG - SHIFT_JIS Japanese prober hit error at byte 223
+2025-10-23 17:53:20 - DEBUG - EUC-JP Japanese prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - GB2312 Chinese prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - EUC-KR Korean prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - CP949 Korean prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - Big5 Chinese prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - EUC-TW Taiwan prober hit error at byte 140
+2025-10-23 17:53:20 - DEBUG - Johab Korean prober hit error at byte 147
+2025-10-23 17:53:20 - DEBUG - windows-1251 Russian confidence = 0.09718263861042889
+2025-10-23 17:53:20 - DEBUG - KOI8-R Russian confidence = 0.1994131796929837
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Russian confidence = 0.9784877398888162
+2025-10-23 17:53:20 - DEBUG - MacCyrillic Russian confidence = 0.21810995133988823
+2025-10-23 17:53:20 - DEBUG - IBM866 Russian confidence = 0.2808523975966116
+2025-10-23 17:53:20 - DEBUG - IBM855 Russian confidence = 0.15383054090218998
+2025-10-23 17:53:20 - DEBUG - ISO-8859-7 Greek confidence = 0.19397152711358015
+2025-10-23 17:53:20 - DEBUG - windows-1253 Greek confidence = 0.1944971952087389
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Bulgarian confidence = 0.8860527813631278
+2025-10-23 17:53:20 - DEBUG - windows-1251 Bulgarian confidence = 0.141153230800553
+2025-10-23 17:53:20 - DEBUG - TIS-620 Thai confidence = 0.05725816175817453
+2025-10-23 17:53:20 - DEBUG - ISO-8859-9 Turkish confidence = 0.19633806690461916
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.0
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.2247389798276422
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.23770469020231394
+2025-10-23 17:53:20 - DEBUG - windows-1251 Russian confidence = 0.09718263861042889
+2025-10-23 17:53:20 - DEBUG - KOI8-R Russian confidence = 0.1994131796929837
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Russian confidence = 0.9784877398888162
+2025-10-23 17:53:20 - DEBUG - MacCyrillic Russian confidence = 0.21810995133988823
+2025-10-23 17:53:20 - DEBUG - IBM866 Russian confidence = 0.2808523975966116
+2025-10-23 17:53:20 - DEBUG - IBM855 Russian confidence = 0.15383054090218998
+2025-10-23 17:53:20 - DEBUG - ISO-8859-7 Greek confidence = 0.19397152711358015
+2025-10-23 17:53:20 - DEBUG - windows-1253 Greek confidence = 0.1944971952087389
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Bulgarian confidence = 0.8860527813631278
+2025-10-23 17:53:20 - DEBUG - windows-1251 Bulgarian confidence = 0.141153230800553
+2025-10-23 17:53:20 - DEBUG - TIS-620 Thai confidence = 0.05725816175817453
+2025-10-23 17:53:20 - DEBUG - ISO-8859-9 Turkish confidence = 0.19633806690461916
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.0
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.2247389798276422
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.23770469020231394
+2025-10-23 17:53:20 - DEBUG - --> Detected encoding for "./project_root/data/raw/example_ISO-8859-5.txt": ISO-8859-5 with confidence 0.98
+2025-10-23 17:53:20 - DEBUG - --> Write the processed content to "./project_root/data/processed/example_ISO-8859-5_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Processing file: example_Windows-1251.txt
+2025-10-23 17:53:20 - DEBUG - --> Read the "./project_root/data/raw/example_Windows-1251.txt" file.
+2025-10-23 17:53:20 - DEBUG - SHIFT_JIS Japanese prober hit error at byte 145
+2025-10-23 17:53:20 - DEBUG - EUC-JP Japanese prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - GB2312 Chinese prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - EUC-KR Korean prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - CP949 Korean prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - Big5 Chinese prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - EUC-TW Taiwan prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - Johab Korean prober hit error at byte 176
+2025-10-23 17:53:20 - DEBUG - windows-1251 Russian confidence = 0.9452753622946789
+2025-10-23 17:53:20 - DEBUG - KOI8-R Russian confidence = 0.029435497498393092
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Russian confidence = 0.2937314732157873
+2025-10-23 17:53:20 - DEBUG - MacCyrillic Russian confidence = 0.925089621092086
+2025-10-23 17:53:20 - DEBUG - IBM866 Russian confidence = 0.2936555637480904
+2025-10-23 17:53:20 - DEBUG - IBM855 Russian confidence = 0.16174520230451275
+2025-10-23 17:53:20 - DEBUG - ISO-8859-7 Greek confidence = 0.455857081983596
+2025-10-23 17:53:20 - DEBUG - windows-1253 Greek confidence = 0.45906195302220554
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Bulgarian confidence = 0.12747366332807925
+2025-10-23 17:53:20 - DEBUG - windows-1251 Bulgarian confidence = 0.8582913365162413
+2025-10-23 17:53:20 - DEBUG - TIS-620 Thai confidence = 0.03616203180963443
+2025-10-23 17:53:20 - DEBUG - ISO-8859-9 Turkish confidence = 0.17898279312483853
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.0
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.6756168231563188
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.6812784166464558
+2025-10-23 17:53:20 - DEBUG - windows-1251 Russian confidence = 0.9452753622946789
+2025-10-23 17:53:20 - DEBUG - KOI8-R Russian confidence = 0.029435497498393092
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Russian confidence = 0.2937314732157873
+2025-10-23 17:53:20 - DEBUG - MacCyrillic Russian confidence = 0.925089621092086
+2025-10-23 17:53:20 - DEBUG - IBM866 Russian confidence = 0.2936555637480904
+2025-10-23 17:53:20 - DEBUG - IBM855 Russian confidence = 0.16174520230451275
+2025-10-23 17:53:20 - DEBUG - ISO-8859-7 Greek confidence = 0.455857081983596
+2025-10-23 17:53:20 - DEBUG - windows-1253 Greek confidence = 0.45906195302220554
+2025-10-23 17:53:20 - DEBUG - ISO-8859-5 Bulgarian confidence = 0.12747366332807925
+2025-10-23 17:53:20 - DEBUG - windows-1251 Bulgarian confidence = 0.8582913365162413
+2025-10-23 17:53:20 - DEBUG - TIS-620 Thai confidence = 0.03616203180963443
+2025-10-23 17:53:20 - DEBUG - ISO-8859-9 Turkish confidence = 0.17898279312483853
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.0
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.6756168231563188
+2025-10-23 17:53:20 - DEBUG - ISO-8859-8 Hebrew confidence = 0.6812784166464558
+2025-10-23 17:53:20 - DEBUG - --> Detected encoding for "./project_root/data/raw/example_Windows-1251.txt": windows-1251 with confidence 0.95
+2025-10-23 17:53:20 - DEBUG - --> Write the processed content to "./project_root/data/processed/example_Windows-1251_processed.txt" file.
+2025-10-23 17:53:20 - INFO - Reading encoding example files:END
+2025-10-23 17:53:20 - INFO - Read many files:START
+2025-10-23 17:53:20 - INFO - Process file_name "example_UTF8.txt":START
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/raw/example_UTF8.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/processed/example_UTF8_processed.txt" file.
+2025-10-23 17:53:20 - INFO - Process file_name "example_UTF8.txt":END
+2025-10-23 17:53:20 - INFO - Process file_name "example_UTF16.txt":START
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/raw/example_UTF16.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/processed/example_UTF16_processed.txt" file.
+2025-10-23 17:53:20 - INFO - Process file_name "example_UTF16.txt":END
+2025-10-23 17:53:20 - INFO - Process file_name "example_ASCII.txt":START
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/raw/example_ASCII.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/processed/example_ASCII_processed.txt" file.
+2025-10-23 17:53:20 - INFO - Process file_name "example_ASCII.txt":END
+2025-10-23 17:53:20 - INFO - Process file_name "example_ISO-8859-5.txt":START
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/raw/example_ISO-8859-5.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/processed/example_ISO-8859-5_processed.txt" file.
+2025-10-23 17:53:20 - INFO - Process file_name "example_ISO-8859-5.txt":END
+2025-10-23 17:53:20 - INFO - Process file_name "example_Windows-1251.txt":START
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/raw/example_Windows-1251.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Read 679 characters from "./project_root/data/processed/example_Windows-1251_processed.txt" file.
+2025-10-23 17:53:20 - INFO - Process file_name "example_Windows-1251.txt":END
+2025-10-23 17:53:20 - INFO - Read many files:END
+2025-10-23 17:53:20 - INFO - Convert a list to a JSON array:START
+2025-10-23 17:53:20 - DEBUG - --> Got 23823 characters
+2025-10-23 17:53:20 - INFO - Convert a list to a JSON array:END
+2025-10-23 17:53:20 - INFO - Saving JSON to file:START
+2025-10-23 17:53:20 - DEBUG - --> Saved 23823 bytes to "./project_root/output/processed_data.json" file.
+2025-10-23 17:53:20 - INFO - Saving JSON to file:END
+2025-10-23 17:53:20 - INFO - Collecting tree info for directory:START
+project_root/data
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_ASCII_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 9f6c333dbc4c3ebb437b136ccbc6e1b3630c14b5a2d567f0e0464e02b48e0a8b
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_ISO-8859-5_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: f2d1ea8f7036ff47c406b6fa25096a5fbab088c6fa5c8cb2744dc3f1eb4fd35a
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_UTF16_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 97ccab3c3edceb5f98ebb758907fb14d4af5cdf7eb7da7e9e9bc180ded251bd9
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_UTF8_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 69fc65e03e6feacccb4d76b4afb650a0165aba84775f02cea2c1c15eb850e875
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_Windows-1251_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: a7043c61d84ab76119d566285190cb878d6a499bcf913747e7644438757f4b38
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_ASCII.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 0eef845262be8ebcb28d66663522a3482ec2b4c090e6cdd94ef40017784af3f3
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_ISO-8859-5.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 3e6bf34f299a25adf6417fd01bb835508653d81a266c6a710c44e27af5907fbf
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_UTF16.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: aeb6b2f78be002c682cec70e10abd0f259d31f41973fa605fa162ff71cb14ff5
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_UTF8.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: e20eac539ad0d286fbf7800013deb4213ad1ef4921f26f8f185b3db7be088fbe
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_Windows-1251.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 07d0a35e523520ab2f1668eb65a1fe7cc5f5fc426b503630bd84c24629fb6821
+2025-10-23 17:53:20 - INFO - Collecting tree info for directory:END
+2025-10-23 17:53:20 - INFO - Creating backup for "project_root/data":START
+2025-10-23 17:53:20 - DEBUG - --> Backup created at "./project_root/backups/backup_20251023.zip" (Size: 6573 bytes)
+2025-10-23 17:53:20 - INFO - Creating backup for "project_root/data":END
+2025-10-23 17:53:20 - INFO - Cleaning encoding example files:START
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_ASCII.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_ISO-8859-5.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_UTF16.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_UTF8.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/raw/example_Windows-1251.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_ASCII_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_ISO-8859-5_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_UTF16_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_UTF8_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - --> Delete the "./project_root/data/processed/example_Windows-1251_processed.txt" file.
+2025-10-23 17:53:20 - DEBUG - Files before: 10, Files after: 0
+2025-10-23 17:53:20 - INFO - Cleaning encoding example files:END
+2025-10-23 17:53:20 - INFO - Get full path of latest backup file in "project_root/backups":START
+2025-10-23 17:53:20 - DEBUG - --> Latest backup file found: "./project_root/backups/backup_20251023.zip"
+2025-10-23 17:53:20 - INFO - Get full path of latest backup file in "project_root/backups":END
+2025-10-23 17:53:20 - INFO - Unpacking backup "./project_root/backups/backup_20251023.zip" to "project_root/data":START
+2025-10-23 17:53:20 - DEBUG - --> Restored files:
+2025-10-23 17:53:20 - DEBUG - project_root/data/
+2025-10-23 17:53:20 - DEBUG - \u251c\u2500\u2500 processed
+2025-10-23 17:53:20 - DEBUG - \u2502   \u251c\u2500\u2500 example_ASCII_processed.txt
+2025-10-23 17:53:20 - DEBUG - \u2502   \u251c\u2500\u2500 example_ISO-8859-5_processed.txt
+2025-10-23 17:53:20 - DEBUG - \u2502   \u251c\u2500\u2500 example_UTF16_processed.txt
+2025-10-23 17:53:20 - DEBUG - \u2502   \u251c\u2500\u2500 example_UTF8_processed.txt
+2025-10-23 17:53:20 - DEBUG - \u2502   \u2514\u2500\u2500 example_Windows-1251_processed.txt
+2025-10-23 17:53:20 - DEBUG - \u2514\u2500\u2500 raw
+2025-10-23 17:53:20 - DEBUG - \u251c\u2500\u2500 example_ASCII.txt
+2025-10-23 17:53:20 - DEBUG - \u251c\u2500\u2500 example_ISO-8859-5.txt
+2025-10-23 17:53:20 - DEBUG - \u251c\u2500\u2500 example_UTF16.txt
+2025-10-23 17:53:20 - DEBUG - \u251c\u2500\u2500 example_UTF8.txt
+2025-10-23 17:53:20 - DEBUG - \u2514\u2500\u2500 example_Windows-1251.txt
+2025-10-23 17:53:20 - INFO - Unpacking backup "./project_root/backups/backup_20251023.zip" to "project_root/data":END
+2025-10-23 17:53:20 - INFO - Collecting tree info for directory:START
+project_root/data
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_ASCII_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 9f6c333dbc4c3ebb437b136ccbc6e1b3630c14b5a2d567f0e0464e02b48e0a8b
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_ISO-8859-5_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: f2d1ea8f7036ff47c406b6fa25096a5fbab088c6fa5c8cb2744dc3f1eb4fd35a
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_UTF16_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 97ccab3c3edceb5f98ebb758907fb14d4af5cdf7eb7da7e9e9bc180ded251bd9
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_UTF8_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 69fc65e03e6feacccb4d76b4afb650a0165aba84775f02cea2c1c15eb850e875
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_Windows-1251_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: a7043c61d84ab76119d566285190cb878d6a499bcf913747e7644438757f4b38
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_ASCII.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 0eef845262be8ebcb28d66663522a3482ec2b4c090e6cdd94ef40017784af3f3
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_ISO-8859-5.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 3e6bf34f299a25adf6417fd01bb835508653d81a266c6a710c44e27af5907fbf
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_UTF16.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: aeb6b2f78be002c682cec70e10abd0f259d31f41973fa605fa162ff71cb14ff5
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_UTF8.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: e20eac539ad0d286fbf7800013deb4213ad1ef4921f26f8f185b3db7be088fbe
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/raw/example_Windows-1251.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 07d0a35e523520ab2f1668eb65a1fe7cc5f5fc426b503630bd84c24629fb6821
+2025-10-23 17:53:20 - INFO - Collecting tree info for directory:END
+2025-10-23 17:53:20 - INFO - Compare FileInfo lists:START
+2025-10-23 17:53:20 - DEBUG - --> Both lists have 10 items
+2025-10-23 17:53:20 - DEBUG - --> Both lists are identical
+2025-10-23 17:53:20 - INFO - Compare FileInfo lists:END
+2025-10-23 17:53:20 - INFO - Are the original and restored file info lists equal? - True
+2025-10-23 17:53:20 - INFO - Collecting tree info for directory:START
+project_root/data/processed
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_ASCII_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 9f6c333dbc4c3ebb437b136ccbc6e1b3630c14b5a2d567f0e0464e02b48e0a8b
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_ISO-8859-5_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: f2d1ea8f7036ff47c406b6fa25096a5fbab088c6fa5c8cb2744dc3f1eb4fd35a
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_UTF16_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 97ccab3c3edceb5f98ebb758907fb14d4af5cdf7eb7da7e9e9bc180ded251bd9
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_UTF8_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: 69fc65e03e6feacccb4d76b4afb650a0165aba84775f02cea2c1c15eb850e875
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: project_root/data/processed/example_Windows-1251_processed.txt
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: a7043c61d84ab76119d566285190cb878d6a499bcf913747e7644438757f4b38
+2025-10-23 17:53:20 - INFO - Collecting tree info for directory:END
+2025-10-23 17:53:20 - INFO - Convert a list to a JSON array:START
+2025-10-23 17:53:20 - DEBUG - --> Got 1526 characters
+2025-10-23 17:53:20 - INFO - Convert a list to a JSON array:END
+2025-10-23 17:53:20 - INFO - Saving JSON to file:START
+2025-10-23 17:53:20 - DEBUG - --> Saved 1526 bytes to "./project_root/output/processed_data_file_infos.json" file.
+2025-10-23 17:53:20 - INFO - Saving JSON to file:END
+2025-10-23 17:53:20 - INFO - Printing file contents:START
+2025-10-23 17:53:20 - DEBUG - File: ./project_root/output/processed_data_file_infos.json
+Contents of the file infos JSON output file:
+[
+    {
+        "file_name": "example_ASCII_processed.txt",
+        "full_path": "project_root/data/processed/example_ASCII_processed.txt",
+        "size": 691,
+        "last_modified_at": "2025-10-23 17:53:20",
+        "hash": "9f6c333dbc4c3ebb437b136ccbc6e1b3630c14b5a2d567f0e0464e02b48e0a8b"
+    },
+    {
+        "file_name": "example_ISO-8859-5_processed.txt",
+        "full_path": "project_root/data/processed/example_ISO-8859-5_processed.txt",
+        "size": 691,
+        "last_modified_at": "2025-10-23 17:53:20",
+        "hash": "f2d1ea8f7036ff47c406b6fa25096a5fbab088c6fa5c8cb2744dc3f1eb4fd35a"
+    },
+    {
+        "file_name": "example_UTF16_processed.txt",
+        "full_path": "project_root/data/processed/example_UTF16_processed.txt",
+        "size": 1384,
+        "last_modified_at": "2025-10-23 17:53:20",
+        "hash": "97ccab3c3edceb5f98ebb758907fb14d4af5cdf7eb7da7e9e9bc180ded251bd9"
+    },
+    {
+        "file_name": "example_UTF8_processed.txt",
+        "full_path": "project_root/data/processed/example_UTF8_processed.txt",
+        "size": 1103,
+        "last_modified_at": "2025-10-23 17:53:20",
+        "hash": "69fc65e03e6feacccb4d76b4afb650a0165aba84775f02cea2c1c15eb850e875"
+    },
+    {
+        "file_name": "example_Windows-1251_processed.txt",
+        "full_path": "project_root/data/processed/example_Windows-1251_processed.txt",
+        "size": 691,
+        "last_modified_at": "2025-10-23 17:53:20",
+        "hash": "a7043c61d84ab76119d566285190cb878d6a499bcf913747e7644438757f4b38"
+    }
+]
+2025-10-23 17:53:20 - INFO - Printing file contents:END
+2025-10-23 17:53:20 - INFO - Convert a JSON array to a list:START
+2025-10-23 17:53:20 - DEBUG - --> Got 5 FileInfo objects
+2025-10-23 17:53:20 - INFO - Convert a JSON array to a list:END
+2025-10-23 17:53:20 - INFO - Compare FileInfo lists:START
+2025-10-23 17:53:20 - DEBUG - --> Both lists have 5 items
+2025-10-23 17:53:20 - DEBUG - --> Both lists are identical
+2025-10-23 17:53:20 - INFO - Compare FileInfo lists:END
+2025-10-23 17:53:20 - INFO - Are the original and deserialized file info lists equal? - True
+2025-10-23 17:53:20 - INFO - Calculating file hash:START
+2025-10-23 17:53:20 - DEBUG - --> File: ./project_root/output/processed_data_file_infos.json
+--> Algorithm: sha256
+--> Block size: 65536 bytes
+2025-10-23 17:53:20 - INFO - Calculating file hash:END
+Hash: f77dd0206b2231aefdad2aedadaf9308c6b22a5632c338327fa3e07f59b60131
+2025-10-23 17:53:20 - INFO - FINISHED ####################################################################################################
