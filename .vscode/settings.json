@@ -1,0 +1,15 @@
+{
+    "json.schemas": [
+        {
+            // "fileMatch" - это массив шаблонов имен файлов.
+            // Этот шаблон применит схему ко всем файлам
+            // в папке 'output', которые заканчиваются на '-file_infos.json'.
+            "fileMatch": [
+                "/output/*-file_infos.json"
+            ],
+            // "url" - это путь к вашему файлу схемы.
+            // (Может быть локальным путем или URL в интернете).
+            "url": "./schemas/json-schema-file_infos_list.json"
+        }
+    ]
+}

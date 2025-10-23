@@ -1,6 +1,6 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "array",
-  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "",
   "minItems": 1,
   "uniqueItems": true,
@@ -13,6 +13,7 @@
       "last_modified_at",
       "hash"
     ],
+    "additionalProperties": false,
     "properties": {
       "file_name": {
         "type": "string",
