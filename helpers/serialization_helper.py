@@ -22,6 +22,8 @@ class FilesPairData:
         self.content_processed = content_processed
         self.size = size
         self.last_modified_at = last_modified_at
+    
+#######################################################################################################
 
 class SerializationHelper:
 
@@ -41,6 +43,8 @@ class SerializationHelper:
 
         LoggingHelper.info("Read many files:END")
         return output_list
+    
+#######################################################################################################
 
     @staticmethod
     def read_filepair_data(file_name: str, encoding_name: str) -> FilesPairData:
@@ -71,6 +75,8 @@ class SerializationHelper:
 
         LoggingHelper.info(f"\tProcess file_name \"{file_name}\":END")
         return file_data
+    
+#######################################################################################################
         
     @staticmethod
     def serialize_list_to_json_array(source_list: list) -> str:
@@ -86,6 +92,8 @@ class SerializationHelper:
 
         LoggingHelper.info(f"Convert a list to a JSON array:END")
         return output_json
+    
+#######################################################################################################
 
     @staticmethod
     def deserialize_json_array_to_fileinfo_list(json_string: str) -> list[FileInfo]:
@@ -112,6 +120,8 @@ class SerializationHelper:
         LoggingHelper.info(f"Convert a JSON array to a list:END")
         return output_list
     
+#######################################################################################################
+    
     @staticmethod
     def compare_fileinfo_lists(list1: list[FileInfo], list2: list[FileInfo]) -> bool:
         """
@@ -131,6 +141,8 @@ class SerializationHelper:
             
         LoggingHelper.info(f"Compare FileInfo lists:END")
         return True
+    
+#######################################################################################################
 
     @staticmethod
     def validate_json_against_schema(json_string: str, json_schema: dict) -> bool:
@@ -147,11 +159,13 @@ class SerializationHelper:
             LoggingHelper.debug(f"--> JSON is valid against the schema.")
             result = True
         except ValidationError as ve:
-            LoggingHelper.warn(f"--> JSON validation error: {ve.message}")
+            LoggingHelper.warning(f"--> JSON validation error: {ve.message}")
             result = False
 
         LoggingHelper.info(f"Validate JSON against schema:END")
         return result
+    
+#######################################################################################################
 
     @staticmethod
     def load_json_schema_from_file_as_dict(json_schema_path: str) -> dict:
@@ -167,3 +181,5 @@ class SerializationHelper:
 
         LoggingHelper.info(f"Load JSON schema from file:END")
         return json_schema
+    
+#######################################################################################################

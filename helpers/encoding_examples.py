@@ -3,8 +3,8 @@ import chardet
 from . import CONSTANTS as CONSTANTS
 from .logging_helper import LoggingHelper
 from .filesystem_helper import FileSystemHelper
+
 class EncodingExamples:
-   
         
     @staticmethod
     def encoding_examples_generate() -> None:
@@ -21,7 +21,9 @@ class EncodingExamples:
                 f.write(CONSTANTS.EXAMPLE_CONTENT)
                 
         LoggingHelper.info("Generating encoding example files:END")
-        
+    
+#######################################################################################################
+
     # Read auto-generated text files with different encodings and autodetect their encodings
     @staticmethod
     def encoding_examples_read_and_process() -> None:
@@ -50,3 +52,5 @@ class EncodingExamples:
                     output_file.write(content_decoded_swapped)
 
         LoggingHelper.info("Reading encoding example files:END")
+    
+#######################################################################################################

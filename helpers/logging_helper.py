@@ -27,7 +27,8 @@ class LoggingHelper:
 
         logging.info(f"STARTED {LoggingHelper.__SPLIT_LINE}")
         print(Fore.LIGHTYELLOW_EX + f"\n{"="*50}\nStarted at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{LoggingHelper.__SPLIT_LINE}")
-
+    
+#######################################################################################################
 
     @staticmethod
     def display_tree(directory: Path, prefix: str = "", is_root: bool = True) -> None:
@@ -57,6 +58,8 @@ class LoggingHelper:
                 # Determine what prefix to pass "deeper"
                 extension = "│   " if pointer == "├── " else "    "
                 LoggingHelper.display_tree(path, prefix=prefix + extension, is_root=False)
+    
+#######################################################################################################
 
     @staticmethod
     def debug_file_contents(file_path: str, message: str | None = None) -> None:
@@ -75,35 +78,49 @@ class LoggingHelper:
         except Exception as e:
             LoggingHelper.error(f"Error reading file {file_path}: {e}")
         LoggingHelper.info("Printing file contents:END")                
+    
+#######################################################################################################
 
     @staticmethod
     def log_end():
         logging.info(f"FINISHED {LoggingHelper.__SPLIT_LINE}")
         print(Fore.LIGHTMAGENTA_EX + f"\n{LoggingHelper.__SPLIT_LINE}\nFinished at: {datetime.now():%Y-%m-%d %H:%M:%S}\n{"="*50}\n")
-        
+    
+#######################################################################################################
+
     @staticmethod
     def print_split_line():
         print(Fore.LIGHTMAGENTA_EX + "\n" + LoggingHelper.__SPLIT_LINE)
-        
+    
+#######################################################################################################
+
     @staticmethod
     def debug(message: str):
         print(Fore.GREEN + message)
         logging.debug(message.strip())
-        
+    
+#######################################################################################################
+
     @staticmethod
     def info(message: str):
         print(Fore.LIGHTWHITE_EX + message)
         logging.info(message.strip())
-        
+    
+#######################################################################################################
+
     @staticmethod
-    def warn(message: str):
+    def warning(message: str):
         print(Fore.LIGHTYELLOW_EX + message)
         logging.warning(message.strip())
-        
+    
+#######################################################################################################
+
     @staticmethod
     def error(message: str):
         print(Fore.RED + message)
         logging.error(message.strip())
+    
+#######################################################################################################
 
     @staticmethod
     def tests():
@@ -111,6 +128,8 @@ class LoggingHelper:
         LoggingHelper.print_split_line()
         LoggingHelper.debug("This is a DEBUG message.")
         LoggingHelper.info("This is an INFO message.")
-        LoggingHelper.warn("This is an ERROR message.")
+        LoggingHelper.warning("This is an WARNING message.")
         LoggingHelper.error("This is an ERROR message.")
         LoggingHelper.log_end()
+    
+#######################################################################################################

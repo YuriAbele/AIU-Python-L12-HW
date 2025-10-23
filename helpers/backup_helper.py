@@ -27,6 +27,8 @@ class BackupHelper:
         LoggingHelper.info(f"Creating backup for \"{full_path_source_directory}\":END")
         return full_path_target_file
     
+#######################################################################################################
+    
     @staticmethod
     def restore_data(full_path_source_backup: str, full_path_target_directory) -> None:
         """
@@ -42,6 +44,8 @@ class BackupHelper:
         LoggingHelper.display_tree(Path(CONSTANTS.BASE_PATH_DATA))
 
         LoggingHelper.info(f"Unpacking backup \"{full_path_source_backup}\" to \"{full_path_target_directory}\":END")
+    
+#######################################################################################################
 
     @staticmethod
     def get_last_backup_full_path() -> str:
@@ -61,3 +65,5 @@ class BackupHelper:
 
         LoggingHelper.info(f"Get full path of latest backup file in \"{CONSTANTS.BASE_PATH_BACKUPS}\":END")
         return full_path_latest_backup
+    
+#######################################################################################################
