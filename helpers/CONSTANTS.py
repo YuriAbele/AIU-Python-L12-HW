@@ -7,12 +7,14 @@ BASE_PATH_DATA_RAW: str = f"{BASE_PATH_DATA}/raw"
 BASE_PATH_DATA_PROCESSED: str = f"{BASE_PATH_DATA}/processed"
 BASE_PATH_OUTPUT: str = f"{BASE_PATH_ROOT}/output"
 BASE_PATH_BACKUPS: str = f"{BASE_PATH_ROOT}/backups"
+BASE_PATH_SCHEMAS: str = f"schemas"
 
 BASE_FILE_NAME_BACKUP: str = "backup"
 
 FILE_NAME_LOG: str = "app.log"
-FILE_NAME_JSON_OUTPUT_FILE_PAIRS: str = "processed_data.json"
-FILE_NAME_JSON_OUTPUT_FILE_INFOS: str = "processed_data_file_infos.json"
+FILE_NAME_JSON_OUTPUT_FILE_PAIRS_LIST: str = "processed_data.json"
+FILE_NAME_JSON_OUTPUT_FILE_INFOS_LIST: str = "processed_data_file_infos.json"
+FILE_NAME_JSON_SCHEMA_FILE_INFOS_LIST: str = "json-schema-file_infos_list.json"
 
 FS_STRUCTURE = [
     BASE_PATH_ROOT, # root directory

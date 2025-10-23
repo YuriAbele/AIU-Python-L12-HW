@@ -1,37 +1,37 @@
 [
     {
-        "xxx_file_name": "example_ASCII_processed.txt",
+        "file_name": "example_ASCII_processed.txt",
         "full_path": "project_root/data/processed/example_ASCII_processed.txt",
         "size": 691,
-        "last_modified_at": "2025-10-23 17:53:20",
+        "last_modified_at": "2025-10-23 18:28:10",
         "hash": "9f6c333dbc4c3ebb437b136ccbc6e1b3630c14b5a2d567f0e0464e02b48e0a8b"
     },
     {
         "file_name": "example_ISO-8859-5_processed.txt",
         "full_path": "project_root/data/processed/example_ISO-8859-5_processed.txt",
         "size": 691,
-        "last_modified_at": "2025-10-23 17:53:20",
+        "last_modified_at": "2025-10-23 18:28:10",
         "hash": "f2d1ea8f7036ff47c406b6fa25096a5fbab088c6fa5c8cb2744dc3f1eb4fd35a"
     },
     {
         "file_name": "example_UTF16_processed.txt",
         "full_path": "project_root/data/processed/example_UTF16_processed.txt",
         "size": 1384,
-        "last_modified_at": "2025-10-23 17:53:20",
+        "last_modified_at": "2025-10-23 18:28:10",
         "hash": "97ccab3c3edceb5f98ebb758907fb14d4af5cdf7eb7da7e9e9bc180ded251bd9"
     },
     {
         "file_name": "example_UTF8_processed.txt",
         "full_path": "project_root/data/processed/example_UTF8_processed.txt",
         "size": 1103,
-        "last_modified_at": "2025-10-23 17:53:20",
+        "last_modified_at": "2025-10-23 18:28:10",
         "hash": "69fc65e03e6feacccb4d76b4afb650a0165aba84775f02cea2c1c15eb850e875"
     },
     {
         "file_name": "example_Windows-1251_processed.txt",
         "full_path": "project_root/data/processed/example_Windows-1251_processed.txt",
         "size": 691,
-        "last_modified_at": "2025-10-23 17:53:20",
+        "last_modified_at": "2025-10-23 18:28:10",
         "hash": "a7043c61d84ab76119d566285190cb878d6a499bcf913747e7644438757f4b38"
     }
 ]

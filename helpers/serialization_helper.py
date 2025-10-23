@@ -1,6 +1,7 @@
+import os
 from datetime import datetime
 import json
-import os
+from jsonschema import validate, ValidationError
 
 from helpers.file_info import FileInfo
 
@@ -144,3 +145,39 @@ class SerializationHelper:
             
         LoggingHelper.info(f"Compare FileInfo lists:END")
         return True
+
+    @staticmethod
+    def validate_json_against_schema(json_string: str, json_schema: dict) -> bool:
+        """
+        Validate a JSON string against a given JSON schema.
+        """
+
+        LoggingHelper.info(f"\nValidate JSON against schema:START")
+
+        result = False        
+        try:
+            data = json.loads(json_string)
+            validate(instance=data, schema=json_schema)
+            LoggingHelper.debug(f"--> JSON is valid against the schema.")
+            result = True
+        except ValidationError as ve:
+            LoggingHelper.error(f"--> JSON validation error: {ve.message}")
+            result = False
+
+        LoggingHelper.info(f"Validate JSON against schema:END")
+        return result
+
+    @staticmethod
+    def load_json_schema_from_file_as_dict(json_schema_path: str) -> dict:
+        """
+        Load a JSON schema from a file.
+        """
+
+        LoggingHelper.info(f"\nLoad JSON schema from file:START")
+
+        with open(json_schema_path, 'r', encoding='utf-8') as schema_file:
+            json_schema = json.load(schema_file)
+            LoggingHelper.debug(f"--> Loaded schema from \"{json_schema_path}\"\n{json.dumps(json_schema, indent=4)}")
+
+        LoggingHelper.info(f"Load JSON schema from file:END")
+        return json_schema

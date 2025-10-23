@@ -139,3 +139,28 @@ class FileSystemHelper:
         return result
     
 #######################################################################################################
+
+    @staticmethod
+    def load_file_contents_as_string(file_path: str, encoding: str = "utf-8") -> str | None:
+        """
+        Load the contents of a file as a string.
+        """
+        
+        LoggingHelper.info(f"\nLoading file contents as string:START")
+        
+        LoggingHelper.debug(f"--> File: {file_path}\n--> Encoding: {encoding}")
+
+        result: str | None = None
+        try:
+            with open(file_path, 'r', encoding=encoding) as input_file:
+                result = input_file.read()
+                LoggingHelper.debug(f"--> Read {len(result)} characters from \"{file_path}\" file.")
+        except FileNotFoundError:
+            LoggingHelper.error(f"Error: File not found '{file_path}'")
+            result = None
+        except IOError as e:
+            LoggingHelper.error(f"Error reading file '{file_path}': {e}")
+            result = None
+            
+        LoggingHelper.info(f"Loading file contents as string:END")
+        return result
