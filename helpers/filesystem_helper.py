@@ -69,6 +69,9 @@ class FileSystemHelper:
         """
         Collects information about all files in the directory and its subdirectories.
         """
+        
+        LoggingHelper.info(f"\nCollecting tree info for directory:START\n{directory_path}")
+        
         file_info_list = []
         for root, dirs, files in os.walk(directory_path):
             for file in files:
@@ -84,6 +87,9 @@ class FileSystemHelper:
                     hash=hash
                 )
                 file_info_list.append(file_info)
+                
+                
+        LoggingHelper.info(f"Collecting tree info for directory:END")
         return file_info_list
 
 #######################################################################################################
@@ -99,13 +105,17 @@ class FileSystemHelper:
         :return: A string with the hash in hexadecimal format, or None on error
         """
         
+        LoggingHelper.info(f"\nCalculating file hash:START")
+        LoggingHelper.debug(f"--> File: {file_path}\n--> Algorithm: {hash_algorithm}\n--> Block size: {block_size} bytes")
+        
         # Create a hash object
         try:
             hash_obj = hashlib.new(hash_algorithm)
         except ValueError:
-            print(f"Error: Unsupported hash algorithm '{hash_algorithm}'")
+            LoggingHelper.error(f"Error: Unsupported hash algorithm '{hash_algorithm}'")
             return None
 
+        result = None
         try:
             # Open the file for reading in binary mode ('rb')
             with open(file_path, 'rb') as f:
@@ -116,11 +126,16 @@ class FileSystemHelper:
                     hash_obj.update(block)
             
             # Return the hash as a hexadecimal string
-            return hash_obj.hexdigest()
+            result = hash_obj.hexdigest()
 
         except FileNotFoundError:
-            print(f"Error: File not found '{file_path}'")
-            return None
+            LoggingHelper.error(f"Error: File not found '{file_path}'")
+            result = None
         except IOError as e:
-            print(f"Error reading file '{file_path}': {e}")
-            return None
+            LoggingHelper.error(f"Error reading file '{file_path}': {e}")
+            result = None
+            
+        LoggingHelper.info(f"Calculating file hash:END\nHash: {result}")
+        return result
+    
+#######################################################################################################

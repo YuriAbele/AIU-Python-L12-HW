@@ -81,7 +81,7 @@ class SerializationHelper:
         LoggingHelper.info(f"\nConvert a list to a JSON array:START")
         
         output_json = json.dumps(source_list, default=lambda o: o.__dict__, indent=4)
-        LoggingHelper.debug(f"\t--> Got {len(output_json)} characters")
+        LoggingHelper.debug(f"--> Got {len(output_json)} characters")
 
         LoggingHelper.info(f"Convert a list to a JSON array:END")
         return output_json
@@ -96,7 +96,7 @@ class SerializationHelper:
         
         with open(output_path, 'w', encoding='utf-8') as output_file:
             output_size = output_file.write(json_string)
-            LoggingHelper.debug(f"\t--> Saved {output_size} bytes to \"{output_path}\" file.")
+            LoggingHelper.debug(f"--> Saved {output_size} bytes to \"{output_path}\" file.")
 
         LoggingHelper.info("Saving JSON to file:END")
 
@@ -120,7 +120,7 @@ class SerializationHelper:
             )
             output_list.append(file_info)
         
-        LoggingHelper.debug(f"\t--> Got {len(output_list)} FileInfo objects")
+        LoggingHelper.debug(f"--> Got {len(output_list)} FileInfo objects")
 
         LoggingHelper.info(f"Convert a JSON array to a list:END")
         return output_list
@@ -131,16 +131,16 @@ class SerializationHelper:
         Compare two lists of FileInfo objects for equality.
         """
         
-        LoggingHelper.info(f"\nCompare file info lists:START")
+        LoggingHelper.info(f"\nCompare FileInfo lists:START")
 
         if len(list1) != len(list2):
             return False
-        LoggingHelper.debug(f"\t--> Both lists have {len(list1)} items")
+        LoggingHelper.debug(f"--> Both lists have {len(list1)} items")
         
         for fi1, fi2 in zip(list1, list2):
-            if fi1.file_name != fi2.file_name or fi1.full_path != fi2.full_path or fi1.size != fi2.size or fi1.last_modified_at != fi2.last_modified_at:
+            if fi1.file_name != fi2.file_name or fi1.full_path != fi2.full_path or fi1.size != fi2.size or fi1.last_modified_at != fi2.last_modified_at or fi1.hash != fi2.hash:
                 return False
-        LoggingHelper.debug(f"\t--> Both lists are identical")
+        LoggingHelper.debug(f"--> Both lists are identical")
             
-        LoggingHelper.info(f"Compare file info lists:END")
+        LoggingHelper.info(f"Compare FileInfo lists:END")
         return True
